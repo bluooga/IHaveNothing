@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneChangeScripts : MonoBehaviour
 {
+
+    public bool changeimmediately;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (changeimmediately)
+        {
+            LoadNextScene();
+        }
     }
 
     // Update is called once per frame
@@ -19,6 +25,11 @@ public class SceneChangeScripts : MonoBehaviour
 
     public void StartThyGame()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
